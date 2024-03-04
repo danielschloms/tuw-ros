@@ -76,8 +76,8 @@ clone-ws01: \
 	ws01/src/tuw_json \
 	ws01/src/tuw_common \
 	ws01/src/tuw_rviz \
-	ws02/src/tuw_debug \
-	ws02/src/tuw_fake_localization
+	ws01/src/tuw_debug \
+	ws01/src/tuw_fake_localization
 
 clone-ws02: \
 	ws02/src/tuw_nav2 \

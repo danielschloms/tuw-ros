@@ -59,7 +59,12 @@ build-ws01:
 build-ws02: 
 	cd ${PROJECT_DIR}/ws02; \
 	source ../env.sh; \
-	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+build-kronecker:
+	cd ${PROJECT_DIR}/ws02; \
+	source ../env.sh; \
+	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --packages-select kronecker_multi_robot \
 
 pull:
 	git pull origin
