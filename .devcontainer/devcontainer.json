@@ -1,0 +1,17 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "TUW ROS Kronecker",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"service": "ros2-kronecker",
+	"remoteEnv": {
+		// Forward X11 & Wayland
+		"HOST_XAUTHORITY": "${localEnv:XAUTHORITY}",
+		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+		"TERM": "xterm-256color"
+	},
+	"postStartCommand": "rm -f /tmp/.Xauthority && ln -s \"/tmp/xdg-host/$(basename $HOST_XAUTHORITY)\" /tmp/.Xauthority",
+	"workspaceFolder": "/home/${localEnv:USER}/projects/tuw-ros"
+}

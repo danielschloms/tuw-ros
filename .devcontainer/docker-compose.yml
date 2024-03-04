@@ -1,0 +1,32 @@
+version: '1'
+volumes:
+  vscode-extensions:
+services:
+  ros2-kronecker:
+    image: tuwrobotics/tuw-ros-daniel
+    ulimits:
+      # Needed for ros2 daemon to work
+      nofile:
+        soft: 1024
+        hard: 1024
+    network_mode: host
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    devices:
+      - /dev/dri
+    environment:
+      - XAUTHORITY=/tmp/.Xauthority
+      - DISPLAY=:0
+    volumes:
+      # Workspace
+      - ../:/home/${USER}/projects/tuw-ros
+      # VSCode Extension persistency
+      # - vscode-extensions:/home/develop/.vscode-server
+      # Shared memory for ROS2 DDS
+      - /dev/shm:/dev/shm
+      # X11
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XDG_RUNTIME_DIR}:/tmp/xdg-host
+    command: /bin/sh -c "while sleep 1000; do :; done"
