@@ -185,6 +185,15 @@
             "cwd": "${workspaceFolder}",
         },
         {
+            "name": "tuw_graph: demo",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/ws02/install/tuw_graph/lib/tuw_graph/demo",
+            "args": ["ws02/src/tuw_nav2/config/maps/straden/map.png"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+        },
+        {
             "name": "tuw_graph_dense: dense_graph_node",
             "type": "cppdbg",
             "request": "launch",
