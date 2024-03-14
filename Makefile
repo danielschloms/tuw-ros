@@ -29,6 +29,9 @@ clean-ws01:
 clean-ws02:
 	rm -rf ./ws02/install ./ws02/build  ./ws02/log
 
+clean-kronecker:
+	rm -rf ./ws_kronecker/install ./ws02/build  ./ws02/log
+
 clean-all: clean-ws00 clean-ws01 clean-ws02
 	rm -rf ./install ./build  ./log
 
@@ -39,6 +42,10 @@ delete-packages:
 	rm -rf ./ws00/src/*
 	rm -rf ./ws01/src/*
 	rm -rf ./ws02/src/*
+	rm -rf ./ws_kronecker/src/*
+
+delete-kronecker:
+	rm -rf ./ws_kronecker/src/*
 
 build-all:  build-ws00 build-ws01 build-ws02
 
@@ -62,7 +69,7 @@ build-ws02:
 	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 build-kronecker:
-	cd ${PROJECT_DIR}/ws02; \
+	cd ${PROJECT_DIR}/ws_kronecker; \
 	source ../env.sh; \
 	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --packages-select kronecker_multi_robot \
 

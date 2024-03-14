@@ -60,6 +60,9 @@ ws02/src/tuw_graph:
 ws02/src/tuw_planner:
 		git clone -b ros2 git@github.com:tuw-robotics/tuw_planner.git $@
 
+ws_kronecker/src/kronecker_multi_robot:
+		git clone git@github.com:danielschloms/kronecker_multi_robot.git $@
+
 clone-ws00: \
 	ws00/src/teleop_tools \
 	ws00/src/slam_toolbox \
@@ -84,4 +87,7 @@ clone-ws02: \
 	ws02/src/tuw_graph \
 	ws02/src/tuw_planner  
 
-clone: clone-ws00 clone-ws01 clone-ws02
+clone-kronecker: \
+	ws_kronecker/src/kronecker_multi_robot
+
+clone: clone-ws00 clone-ws01 clone-ws02 clone-kronecker
