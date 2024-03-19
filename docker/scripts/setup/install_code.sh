@@ -14,5 +14,6 @@ rm ${MY_HOME}/.wget-hsts  || true
 sudo -u ${MY_USER} code --install-extension ms-vscode.cpptools
 sudo -u ${MY_USER} code --install-extension ms-vscode.cmake-tools
 sudo -u ${MY_USER} code --install-extension ms-python.python
+sudo -u ${MY_USER} code --install-extension ms-python.autopep8
 #sudo -u ${MY_USER} code --install-extension nonanonno.vscode-ros2
 #sudo -u ${MY_USER} code --install-extension platformio.platformio-ide
