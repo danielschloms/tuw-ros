@@ -30,9 +30,9 @@ clean-ws02:
 	rm -rf ./ws02/install ./ws02/build  ./ws02/log
 
 clean-kronecker:
-	rm -rf ./ws_kronecker/install ./ws02/build  ./ws02/log
+	rm -rf ./ws_kronecker/install ./ws_kronecker/build  ./ws_kronecker/log
 
-clean-all: clean-ws00 clean-ws01 clean-ws02
+clean-all: clean-ws00 clean-ws01 clean-ws02 clean-kronecker
 	rm -rf ./install ./build  ./log
 
 clean: clean-ws02
@@ -71,7 +71,7 @@ build-ws02:
 build-kronecker:
 	cd ${PROJECT_DIR}/ws_kronecker; \
 	source ../env.sh; \
-	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --packages-select kronecker_multi_robot \
+	colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --packages-select kronecker_multi_robot playground \
 
 pull:
 	git pull origin
