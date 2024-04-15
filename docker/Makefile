@@ -52,11 +52,15 @@ build: build-base
 
 run:
 	@docker run -ti -e "TERM=xterm-256color" --rm --privileged \
-	    --network="host" --env="DISPLAY" \
-	    --add-host "${HOSTNAME}-${PREFIX}:127.0.0.1" \
-	    --hostname ${HOSTNAME}-${PREFIX} \
+	    --pid host \
+		--ipc host \
+		--net host \
+		--volume "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+		--env QT_X11_NO_MITSHM=1 \
+	    --env="DISPLAY" \
 	    --name ${HOSTNAME}-${PREFIX} \
 		-v /dev/shm:/dev/shm \
+		-v "/etc/localtime:/etc/localtime:ro" \
 		-v ${HOST_PROJECT_DIR}:${CONTAINER_PROJECTS_DIR}/${PROJECT_NAME} \
 		${OWNER}/${PROJECT_NAME}-${USER}
 
